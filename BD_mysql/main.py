@@ -16,8 +16,9 @@ try:
         print("")
 
         cursor = conexion.cursor()
-        cursor.execute("INSERT INTO recetas (nombre, tiempo, vegano) VALUES ('Pizza Napolitana', 15, 1);")
-
+        # cursor.execute("INSERT INTO recetas (nombre, tiempo, vegano) VALUES ('Pizza Napolitana', 15, 1);")
+        sentencia = "UPDATE recetas SET nombre = 'Pizza Muzzarella', tiempo = 50 WHERE idReceta = 13"
+        cursor.execute(sentencia)
         conexion.commit() # Confirma la acción que estamos ejecutando
 
         print("Registro insertado con éxito")

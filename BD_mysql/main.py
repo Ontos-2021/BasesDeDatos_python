@@ -8,25 +8,19 @@ try:
         port=3306,
         user='root',
         password='root',
-        db='world'
+        db='recetapp'
     )
 
     if conexion.is_connected():
         print("Conexión exitosa.")
-        infoserver = conexion.get_server_info()
-        print(f"Información del servidor: {infoserver}")
+        print("")
+
         cursor = conexion.cursor()
-        cursor.execute("SELECT database();")
-        registro = cursor.fetchone()
-        print(f"Conectado a la base de datos: {registro}")
+        cursor.execute("INSERT INTO recetas (nombre, tiempo, vegano) VALUES ('Pizza Napolitana', 15, 1);")
 
-        cursor.execute("SELECT * FROM city WHERE CountryCode = 'ARG'")
-        resultados = cursor.fetchall()
+        conexion.commit() # Confirma la acción que estamos ejecutando
 
-        for fila in resultados:
-            # print(fila[1] + " - " + fila[2])
-            print(f"Registro: {fila}")
-        print(f"Total de registros: {cursor.rowcount}")
+        print("Registro insertado con éxito")
 
 except Error as ex:
     print("Ha ocurrido un error en la conexión a la base de datos |", ex)
@@ -35,4 +29,5 @@ finally:
 
     if conexion.is_connected():
         conexion.close()
+        print("")
         print("La conexión ha finalizado")

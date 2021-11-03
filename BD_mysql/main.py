@@ -13,5 +13,10 @@ try:
 
     if conexion.is_connected():
         print("Conexión exitosa.")
-except Error:
-    print("Ha ocurrido un error en la conexión a la base de datos")
+except Error as ex:
+    print("Ha ocurrido un error en la conexión a la base de datos |", ex)
+
+finally:
+    if conexion.is_connected():
+        conexion.close()
+        print("La conexión ha finalizado")

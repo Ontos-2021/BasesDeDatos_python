@@ -16,10 +16,14 @@ try:
         print("")
 
         cursor = conexion.cursor()
-        # sentencia = INSERT INTO recetas (nombre, tiempo, vegano) VALUES ('Pizza Napolitana', 15, 1)"
+        sabor = str(input("¿Que receta quieres ingresar?: "))
+        tiempo = int(input("¿Cuánto tiempo toma?: "))
+        vegano = int(input("¿Es vegana la receta? Sí = 1, No = 0: "))
+        sentencia = "INSERT INTO recetas (nombre, tiempo, vegano) VALUES ('{0}', {1}, {2})".format(sabor, tiempo, vegano)
         # sentencia = "UPDATE recetas SET nombre = 'Pizza Muzzarella', tiempo = 50 WHERE idReceta = 13"
-        # sentencia = "DELETE FROM recetas WHERE nombre = 'Pizza Muzzarella' AND tiempo = 50"
-        sentencia = "INSERT INTO recetas (nombre, tiempo, vegano) VALUES ('Pizza Calabresa', 35, 0)"
+        # sentencia = "UPDATE recetas SET tiempo = 35 WHERE nombre = 'Pizza napolitana'"
+        # sentencia = "DELETE FROM recetas WHERE nombre = 'Pizza calabresa' or nombre = 'Pizza Napolitana'"
+        # sentencia = "INSERT INTO recetas (nombre, tiempo, vegano) VALUES ('Pizza Calabresa', 35, 0)"
 
         cursor.execute(sentencia)
 

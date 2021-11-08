@@ -1,5 +1,7 @@
-#Tutorial de MySql con Python
+#Bases de datos con Python
 
-¡Hola! Este repositorio es para practicar con el tutorial de Python de UskoKrum2010
+Este es un repositorio personal para aprender y practicar bases de datos con el lenguaje de programación python.
 
-Este es el link de uno de los tutoriales: https://www.youtube.com/watch?v=vlwDmzqYqPI
+Por ahora estoy practicando con
+- MySQL
+- Sqlite3

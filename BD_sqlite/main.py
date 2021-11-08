@@ -2,6 +2,8 @@ import sqlite3
 
 
 # Definir conección y el cursor
+
+
 def main():
     connection = sqlite3.connect('BaseDeDatos.db')
     cursor = connection.cursor()
@@ -32,12 +34,26 @@ def main():
     cursor.execute("INSERT INTO purchases VALUES (23, 64, 21.12)")
 
     # Recibir resultados
+    def recibir_resultados():
+        cursor.execute("SELECT * FROM purchases")
 
-    cursor.execute("SELECT * FROM purchases")
+        resultados = cursor.fetchall()
 
-    resultados = cursor.fetchall()
+        print(f"Resultados: {resultados}")
 
-    print(f"Resultados: {resultados}")
+    recibir_resultados()
+
+    # Actualizar
+
+    cursor.execute("UPDATE purchases SET total_cost = 3.67 WHERE id_purchase = 54")
+
+    recibir_resultados()
+
+    # Borrar
+
+    cursor.execute("DELETE FROM purchases WHERE id_purchase = 54")
+
+    recibir_resultados()
 
 
 if __name__ == '__main__':

@@ -39,7 +39,10 @@ def main():
 
         resultados = cursor.fetchall()
 
-        print(f"Resultados: {resultados}")
+        print("Purchases:")
+        for purchase in resultados:
+            print(f"ID: {purchase[0]} - ID store: {purchase[1]} - Total Cost: {purchase[2]}")
+        print("")
 
     recibir_resultados()
 
